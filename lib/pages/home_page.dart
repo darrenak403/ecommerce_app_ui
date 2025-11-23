@@ -35,6 +35,76 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: MyBottomNavbar(
         onTabChange: (index) => navigateBottomBar(index),
       ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Padding(
+              padding: const EdgeInsets.only(left: 25.0),
+              child: const Icon(Icons.menu, color: Colors.black),
+            ),
+            onPressed: () {
+              //open drawer or do something
+              Scaffold.of(context).openDrawer();
+            },
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.grey[900],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                //Logo
+                DrawerHeader(
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(color: Colors.transparent),
+                    ),
+                  ),
+                  margin: EdgeInsets.zero,
+                  padding: EdgeInsets.zero,
+                  child: Center(
+                    child: Image.asset(
+                      'lib/images/nike.png',
+                      height: 120,
+                      width: 150,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+
+                //Others page
+                const Padding(
+                  padding: EdgeInsets.only(left: 25.0),
+                  child: ListTile(
+                    leading: Icon(Icons.home, color: Colors.white),
+                    title: Text('Home', style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+
+                const Padding(
+                  padding: EdgeInsets.only(left: 25.0),
+                  child: ListTile(
+                    leading: Icon(Icons.info, color: Colors.white),
+                    title: Text('About', style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+              ],
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 25.0, bottom: 25.0),
+              child: ListTile(
+                leading: Icon(Icons.logout, color: Colors.white),
+                title: Text('Logout', style: TextStyle(color: Colors.white)),
+              ),
+            ),
+          ],
+        ),
+      ),
       body: pages[_selectedIndex],
     );
   }
