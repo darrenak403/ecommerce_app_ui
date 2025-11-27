@@ -40,9 +40,9 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         leading: Builder(
           builder: (context) => IconButton(
-            icon: Padding(
-              padding: const EdgeInsets.only(left: 25.0),
-              child: const Icon(Icons.menu, color: Colors.black),
+            icon: const Padding(
+              padding: EdgeInsets.only(left: 12.0),
+              child: Icon(Icons.menu, color: Colors.black),
             ),
             onPressed: () {
               //open drawer or do something
